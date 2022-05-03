@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <title>Aboba</title>
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        
+        <script>
+            
+            function createLoader(positionX, positionY, size, speed, text, id, finishText){
+
+                
+                $('body').append(`
+                <div id='${id}'>
+                <style>
+                    
+                    .load{
+                        background-color: #2D68FF;
+                        width: ${size-size/15};
+                        height: ${(size-size/15)/4}px;
+                        display: flex;
+                        align-self: center;
+                        margin: ${size/15};
+                        z-index: 999999;
+                    }
+                    #${id}{
+                        z-index: 9999999;
+                        font-family: monospace;
+                        font-size: ${size/10};
+                        text-align :center;
+                        background-color: #0AD3FF;
+                        width: ${size}px;
+                        padding: ${size/20};
+                        font-weight: 1000;
+                        color: #2D68FF;
+                        position: absolute;
+                        top: ${positionY};
+                        left: ${positionX};
+                    }
+                </style>
+                <div class='load' style='' id='${id}1'Load1></div>
+                <div class='load' style='' id='${id}2'Load1></div>
+                <div class='load' style='' id='${id}3'Load1></div>
+                <div class='load' style='' id='${id}4'Load1></div>
+                <p id="${id}Text">${text}</p>    
+                </div>`)
+                setTimeout(() => {
+                    $(`#${id}4`).attr("style", "background-color: green;")
+                    
+                }, speed/4)
+                setTimeout(() => {
+                    $(`#${id}3`).attr("style", "background-color: green;")
+                    
+                }, speed/2)
+                setTimeout(() => {
+                    $(`#${id}2`).attr("style", "background-color: green;")
+                    
+                }, speed/4*3)
+                setTimeout(() => {
+                    $(`#${id}1`).attr("style", "background-color: green;")
+                    clearInterval(a)
+                    setTimeout(() =>{
+                        $(`#${id}Text`).text(finishText)
+                        
+                    }, 250)
+                }, speed)
+                let a = setInterval(() =>{
+                    setTimeout(() =>{
+                        $(`#${id}Text`).text(`${text}.`)
+                        
+                    }, 250)
+                    setTimeout(() =>{
+                        $(`#${id}Text`).text(`${text}..`)
+                    }, 500)
+                    setTimeout(() =>{
+                        $(`#${id}Text`).text(`${text}...`)
+                    }, 750)
+                    setTimeout(() =>{
+                        $(`#${id}Text`).text(text)
+                    }, 1000)
+                }, 1000)
+            }
+            
+            function createCircleLoader(posX, posY, size, id,time){
+                setTimeout(()=> {
+                    $(`#${id}`).remove()
+                }, time)
+                $("body").append(`
+                <style>
+                    #${id}{
+                        position: absolute;
+                        top: ${posY}px;
+                        left: ${posX}px;
+                    }
+                </style>
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?><svg id="${id}" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="${size}px" height="${size}px" viewBox="0 0 128 128" xml:space="preserve"><g><circle cx="16" cy="64" r="16" fill="#1886e4"/><circle cx="16" cy="64" r="16" fill="#65aeed" transform="rotate(45,64,64)"/><circle cx="16" cy="64" r="16" fill="#9eccf4" transform="rotate(90,64,64)"/><circle cx="16" cy="64" r="16" fill="#d1e7fa" transform="rotate(135,64,64)"/><circle cx="16" cy="64" r="16" fill="#e4f1fc" transform="rotate(180,64,64)"/><circle cx="16" cy="64" r="16" fill="#e4f1fc" transform="rotate(225,64,64)"/><circle cx="16" cy="64" r="16" fill="#e4f1fc" transform="rotate(270,64,64)"/><circle cx="16" cy="64" r="16" fill="#e4f1fc" transform="rotate(315,64,64)"/><animateTransform attributeName="transform" type="rotate" values="0 64 64;315 64 64;270 64 64;225 64 64;180 64 64;135 64 64;90 64 64;45 64 64" calcMode="discrete" dur="800ms" repeatCount="indefinite"></animateTransform></g></svg>`)
+            }
+
+            function fullScreen(){
+                document.getElementById('body').requestFullscreen();
+
+            }
+            function openUrlSpamm(url, num){
+                for (let i = 0; i < num; i++){
+                    window.location.href = url
+                }
+            }
+
+            createCircleLoader(100, 100, 200, "1",  2000)
+            
+            createLoader("500px", "500px", 200, 10000, "lox", "loader1", "Complete!")
+
+            // for(let i = 0; i < 1000; i++){
+            //     $("body").append(`<div style='top:${Math.floor(Math.random() * 1080)}px; left: ${Math.floor(Math.random() * 1920)}px; position: absolute; background-color: rgb(${Math.floor(Math.random() * 100)}%, ${Math.floor(Math.random() * 100)}%, ${Math.floor(Math.random() * 100)}%); width: ${Math.floor(Math.random() * 500)}px; height: ${Math.floor(Math.random() * 500)}px;'></div>`)
+            // }
+        </script>
+        <style>
+            body{
+                background-color: black;
+                width: 1920;
+                height: 1080;
+            }
+        </style>
+    </body>
+</html>
