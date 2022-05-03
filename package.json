@@ -1,0 +1,28 @@
+{
+  "name": "jokelibrary",
+  "version": "1.0.0",
+  "description": "WebJs library for joking",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./API/server.js 25565"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilingual-vovs/JokeLibrary.git"
+  },
+  "keywords": [
+    "Jokes",
+    "js"
+  ],
+  "author": "Blackbird",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bilingual-vovs/JokeLibrary/issues"
+  },
+  "homepage": "https://github.com/bilingual-vovs/JokeLibrary#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
