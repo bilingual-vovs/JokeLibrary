@@ -1,0 +1,36 @@
+[
+    {
+        "jokeName": "redirectS",
+        "lvl": 1,
+        "description": {
+            "reason": "entering a command",
+            "action": "your browser page redirecting to about:blank, empty page",
+            "use": "It is just a simpe trick, so it don't have special use."
+        },
+        "group": "Redirection tricks",
+        "arguments": [],
+        "tags": ["simple, redirect"],
+        "family": ["redirectPlus", "timeoutRedirectS", "timeoutRedirectPlus"]
+    },
+    {
+        "jokeName": "redirectPlus",
+        "lvl": 1,
+        "description": {
+            "reason": "entering a command",
+            "action": "your browser page redirecting to entered URL, empty page",
+            "use": "It is just a simpe trick, so it don't have special use."
+        },
+        "group": "Redirection tricks",
+        "arguments": [
+            {
+                "name": "URL",
+                "type": "string",
+                "description": "It is a 1-st argument, it must be link to WEB-page that you want to redirect.",
+                "example": "'https://youtube.com'",
+                "P.S.": "P.S. - this argument uses type string, that your URL must me in brackets like here - 'yourString'"
+            }
+        ],
+        "tags": ["simple, redirect"],
+        "family": ["redirectS", "timeoutRedirectS", "timeoutRedirectPlus"]
+    }
+]

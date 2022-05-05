@@ -1,6 +1,9 @@
 class Jokes {
     constructor(){
-
+        this.docs = new Map()
+        fetch("localhost:25566/documentMap").then((data)=>{
+            this.description = JSON.parse(data)
+        })
     }
     help(){
         console.log(`Hey, Odin see you need some help, right?
@@ -8,6 +11,9 @@ class Jokes {
     - To check the list of jokes use "jokes.getList()"
     - To get description of joke use "jokes.description('nameOfJoke')
     - To get the systamized objekt of jokes you can use "jokes.getSystamized()", to see info about that object use "systemJokes.help()"`)
+    }
+    description(nameOfJoke){
+
     }
     redirectS(){
         window.location.href = "about:blank"
@@ -25,6 +31,7 @@ class Jokes {
             window.location.href = URL
         }, timeout)
     }
+    
 }
 
 let jokes = new Jokes()
